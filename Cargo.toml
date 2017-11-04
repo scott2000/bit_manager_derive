@@ -1,0 +1,18 @@
+[package]
+name = "bit_manager_derive"
+version = "0.1.0"
+authors = ["Scott Taylor <scott11x8@gmail.com>"]
+
+description = "Derive macro for bit_manager crate"
+keywords = ["bit", "manager", "derive", "bit_store", "BitStore"]
+license = "MIT"
+
+include = ["src/lib.rs", "Cargo.toml", "LICENSE"]
+
+[dependencies]
+bit_manager = "0.5.2"
+syn = "0.11.11"
+quote = "0.3.15"
+
+[lib]
+proc-macro = true
