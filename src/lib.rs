@@ -1,4 +1,4 @@
-//! Provides the derive macro for [`BitStore`].
+//! Provides the derive macro for [`BitStore`] in the [bit manager] crate.
 //!
 //! # Usage
 //!
@@ -56,6 +56,8 @@
 //!
 //! # Implemenation
 //!
+//! Implementations for structs and enums are similar, but vary slightly.
+//!
 //! ## Enums
 //!
 //! Enum variants are stored by their index. The index is stored with the least amount of bits needed (by default)
@@ -93,7 +95,8 @@
 //! }
 //! ```
 //!
-//! [`BitStore`]: http://docs.rs/bit_manager/0.5.2/bit_manager/data/trait.BitStore.html
+//! [`BitStore`]: http://docs.rs/bit_manager/0.5.3/bit_manager/data/trait.BitStore.html
+//! [bit manager]: http://docs.rs/bit_manager
 
 #![recursion_limit="128"]
 extern crate proc_macro;
@@ -160,7 +163,7 @@ impl<'a> From<&'a syn::DeriveInput> for BitAttribute {
 
 /// The derive macro for [`BitStore`]
 ///
-/// [`BitStore`]: http://docs.rs/bit_manager/0.5.2/bit_manager/data/trait.BitStore.html
+/// [`BitStore`]: http://docs.rs/bit_manager/0.5.3/bit_manager/data/trait.BitStore.html
 #[proc_macro_derive(BitStore, attributes(bit))]
 pub fn bit_store_derive(input: TokenStream) -> TokenStream {
     let mut ast = syn::parse_derive_input(&input.to_string()).unwrap();
